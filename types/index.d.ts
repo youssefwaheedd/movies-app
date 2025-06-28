@@ -1,3 +1,20 @@
+export interface Genre {
+  id: number;
+  name: string;
+}
+
+export interface CastMember {
+  id: number;
+  name: string;
+  character: string;
+}
+
+export interface CrewMember {
+  id: number;
+  name: string;
+  job: string;
+}
+
 export interface Movie {
   id: number;
   title: string;
@@ -7,43 +24,21 @@ export interface Movie {
   vote_average: number;
   poster_path: string | null;
   backdrop_path: string | null;
-  genres: { id: number; name: string }[];
+  genres: Genre[];
   credits: {
-    cast: {
-      id: number;
-      name: string;
-      character: string;
-      profile_path: string | null;
-    }[];
-    crew: {
-      id: number;
-      name: string;
-      job: string;
-    }[];
+    cast: CastMember[];
+    crew: CrewMember[];
   };
 }
 
-export interface MovieCardProps {
-  id: number;
-  title: string;
-  poster_path: string;
+export interface MetaProps {
   release_date: string;
+  runtime: number;
   vote_average: number;
 }
 
-export interface TMDBMovieResult {
-  id: number;
+type CreditListProps = {
   title: string;
-  overview: string;
-  release_date: string;
-  vote_average: number;
-  poster_path: string | null;
-  backdrop_path: string | null;
-  popularity: number;
-  vote_count: number;
-  adult: boolean;
-  video: boolean;
-  genre_ids: number[];
-  original_language: string;
-  original_title: string;
-}
+  credits: CastMember[] | CrewMember[];
+  type: "cast" | "crew";
+};

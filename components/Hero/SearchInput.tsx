@@ -11,6 +11,11 @@ export default function SearchInput({
   const [input, setInput] = useState(initialQuery);
   const router = useRouter();
 
+  // Update input when initialQuery changes (e.g., when navigating)
+  useEffect(() => {
+    setInput(initialQuery);
+  }, [initialQuery]);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       const query = input.trim();
@@ -28,6 +33,8 @@ export default function SearchInput({
       onChange={(e) => setInput(e.target.value)}
       className="border p-2 rounded w-full mb-4"
       placeholder="Search for a movie..."
+      aria-label="Search movies"
+      role="searchbox"
     />
   );
 }

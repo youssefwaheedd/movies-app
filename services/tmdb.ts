@@ -43,3 +43,29 @@ export async function getPopularMovies() {
   const data = await res.json();
   return data.results;
 }
+
+export async function getFeaturedMovies() {
+  const res = await fetch(`${process.env.TMDB_BASE_URL}/movie/popular`, {
+    headers: {
+      Authorization: `Bearer ${process.env.TMDB_API_READ_ACCESS_TOKEN}`,
+    },
+  });
+
+  if (!res.ok) throw new Error("Failed to fetch featured movies");
+
+  const data = await res.json();
+
+  // just take the first 4
+  return data.results.slice(0, 4);
+}
+
+export async function getTrendingMovies() {
+  const res = await fetch(`${process.env.TMDB_BASE_URL}/trending/movie/week`, {
+    headers: {
+      Authorization: `Bearer ${process.env.TMDB_API_READ_ACCESS_TOKEN}`,
+    },
+  });
+  if (!res.ok) throw new Error("Failed to fetch trending movies");
+  const data = await res.json();
+  return data.results;
+}

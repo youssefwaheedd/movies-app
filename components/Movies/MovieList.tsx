@@ -1,16 +1,18 @@
-import { MovieCardProps } from "@/types";
+import { Movie } from "@/types";
 import MovieCard from "./MovieCard";
 
 export default function MovieList({
   movies,
   query,
 }: {
-  movies: MovieCardProps[];
+  movies: Movie[];
   query?: string;
 }) {
   if (query && movies.length === 0) {
     return (
-      <p className="text-gray-500 italic">No results found for :{query}</p>
+      <p className="text-gray-500 italic h-full flex justify-center items-center">
+        No results found for :{query}
+      </p>
     );
   }
 
