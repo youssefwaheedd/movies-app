@@ -6,11 +6,13 @@ import FeaturedMovies from "@/components/Movies/FeaturedMovies";
 import FavoriteMovies from "@/components/Movies/FavoriteMovies";
 import TrendingMovies from "@/components/Movies/TrendingMovies";
 
-export default async function Page(props: {
-  searchParams?: { [key: string]: string | string[] | undefined };
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const searchParams = await props.searchParams;
-  const rawQuery = searchParams?.query;
+  const params = await searchParams;
+  const rawQuery = params?.query;
   const query = typeof rawQuery === "string" ? rawQuery.trim() : "";
 
   const movies = query ? await searchMovies(query) : [];
