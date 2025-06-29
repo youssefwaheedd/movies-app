@@ -156,7 +156,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 
 ## 📊 Performance Results
 
-![Lighthouse Results](/assets/images/lighthouse_results.png)
+![Lighthouse Results](/public/assets/images/lighthouse_results.png)
 
 - **Performance**: 98%
 - **Accessibility**: 100%
