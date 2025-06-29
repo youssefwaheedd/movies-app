@@ -115,7 +115,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 - Added priority loading for above-the-fold images
 - Optimized bundle size by removing unused dependencies
 
-**Result**: Performance score improved to 98%
+**Result**: Performance score improved to 98% on mobile and 100% on desktop
 
 ### 2. Layout Shift Issues
 
