@@ -1,8 +1,8 @@
-# 🎬 Movie App
+# Movie App
 
 A modern, high-performance movie discovery application built with Next.js 15, TypeScript, and Tailwind CSS. Search through millions of movies, explore detailed information, and save your favorites with a beautiful, accessible interface.
 
-## ✨ Features
+## Features
 
 - **Movie Search**: Real-time search through TMDB's extensive movie database
 - **Movie Details**: Comprehensive movie information including cast, crew, ratings, and genres
@@ -13,7 +13,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 - **Accessibility**: WCAG compliant with keyboard navigation and screen reader support
 - **Performance Optimized**: Lighthouse scores of 100 across all metrics (Perfomance 98%)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -67,7 +67,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
    - Navigate to `http://localhost:3000`
    - **Important**: Run in incognito/private mode to avoid hydration errors caused by browser extensions in development mode
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 - **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
@@ -78,7 +78,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 - **API**: TMDB (The Movie Database)
 - **Package Manager**: Bun (recommended) / npm
 
-## 🎨 Design Decisions
+## Design Decisions
 
 ### Architecture
 
@@ -102,7 +102,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 - **Color Contrast**: WCAG AA compliant color scheme (chatgpt helped with this)
 - **Skip Links**: Quick navigation for keyboard users (chatgpt helped with this)
 
-## 🚧 Challenges Faced & Solutions
+## Challenges Faced & Solutions
 
 ### 1. Performance Optimization
 
@@ -154,7 +154,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 
 **Result**: TBT reduced significantly, maintaining smooth user experience.
 
-## 📊 Performance Results
+## Performance Results
 
 ![Lighthouse Results](/public/assets/images/lighthouse_results.png)
 
@@ -163,7 +163,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 - **Best Practices**: 100%
 - **SEO**: 100%
 
-## 🔧 Additional Features Implemented
+## Additional Features Implemented
 
 ### Enhanced Movie Discovery
 
@@ -178,7 +178,7 @@ A modern, high-performance movie discovery application built with Next.js 15, Ty
 - **Error Handling**: Graceful error states with user-friendly messages
 - **Responsive Design**: Optimized for mobile, tablet, and desktop
 
-## 🎭 Animation Implementation
+## Animation Implementation
 
 Initially, I implemented animations using **Framer Motion** for smooth, complex animations. However, during performance optimization, I discovered that Framer Motion was causing significant Total Blocking Time (TBT) issues, impacting the overall performance score.
 
@@ -191,7 +191,7 @@ Initially, I implemented animations using **Framer Motion** for smooth, complex 
 - Maintains smooth user experience
 - Eliminates JavaScript execution overhead
 
-## 🎯 Future Improvements
+## Future Improvements
 
 ### Technical Debt
 
@@ -206,7 +206,7 @@ During the final review of requirements, I noticed that the project specificatio
 
 - **Pagination**: For large lists of cast/crew (this project did not need pagination so I just saved time)
 
-## 📝 Scripts
+## Scripts
 
 ```bash
 # Development
@@ -225,7 +225,7 @@ bun run lint         # Run ESLint
 npm run lint
 ```
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Github Repo](https://github.com/youssefwaheedd/movies-app)
 
