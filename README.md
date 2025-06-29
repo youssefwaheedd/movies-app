@@ -2,6 +2,8 @@
 
 A modern, high-performance movie discovery application built with Next.js 15, TypeScript, and Tailwind CSS. Search through millions of movies, explore detailed information, and save your favorites with a beautiful, accessible interface.
 
+**Live Demo**: [https://noon-movies-app.vercel.app](https://noon-movies-app.vercel.app)
+
 ## Features
 
 - **Movie Search**: Real-time search through TMDB's extensive movie database
