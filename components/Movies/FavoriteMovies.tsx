@@ -34,7 +34,11 @@ export default function FavoriteMovies() {
   }
 
   if (favorites.length === 0) {
-    return <p className="text-gray-400 text-center">No favorite movies yet.</p>;
+    return (
+      <p className="text-gray-400  flex items-center min-h-full justify-center w-full">
+        No favorite movies yet.
+      </p>
+    );
   }
 
   return (

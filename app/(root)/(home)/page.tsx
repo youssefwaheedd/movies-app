@@ -1,8 +1,6 @@
-// import FavoriteMovies from "@/components/Movies/FavoriteMovies";
 import Hero from "@/components/Hero/Hero";
 import MovieList from "@/components/Movies/MovieList";
 import { searchMovies } from "@/services/tmdb";
-import FavoriteMovies from "@/components/Movies/FavoriteMovies";
 import dynamic from "next/dynamic";
 import { Movie } from "@/types";
 
@@ -51,10 +49,6 @@ export default async function Page({
         </section>
       ) : (
         <>
-          <section className="movie-section">
-            <h2 className="movie-section-title">Favorite Movies</h2>
-            <FavoriteMovies />
-          </section>
           <section className="movie-section">
             <h2 className="movie-section-title">Featured Movies</h2>
             <FeaturedMovies />
