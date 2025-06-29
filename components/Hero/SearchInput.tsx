@@ -11,7 +11,7 @@ export default function SearchInput({
   const [input, setInput] = useState(initialQuery);
   const router = useRouter();
 
-  // Update input when initialQuery changes (e.g., when navigating)
+  // update input when initialQuery changes
   useEffect(() => {
     setInput(initialQuery);
   }, [initialQuery]);
@@ -19,7 +19,7 @@ export default function SearchInput({
   useEffect(() => {
     const timeout = setTimeout(() => {
       const query = input.trim();
-      const url = query ? `/?query=${encodeURIComponent(query)}` : "/";
+      const url = query ? `/?query=${encodeURIComponent(query)}` : "/"; // used encodeURI to handle spaces and special characters
       router.replace(url);
     }, 500);
 
@@ -27,14 +27,24 @@ export default function SearchInput({
   }, [input, router]);
 
   return (
-    <input
-      type="text"
-      value={input}
-      onChange={(e) => setInput(e.target.value)}
-      className="border p-2 rounded w-full mb-4"
-      placeholder="Search for a movie..."
-      aria-label="Search movies"
-      role="searchbox"
-    />
+    <form role="search" onSubmit={(e) => e.preventDefault()}>
+      <label htmlFor="movie-search" className="sr-only">
+        Search for movies
+      </label>
+      <input
+        id="movie-search"
+        type="search"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        className="search-input"
+        placeholder="Search for a movie..."
+        aria-label="Search for movies by title"
+        aria-describedby="search-description"
+      />
+      <div id="search-description" className="sr-only">
+        Type to search for movies. Results will appear automatically as you
+        type.
+      </div>
+    </form>
   );
 }

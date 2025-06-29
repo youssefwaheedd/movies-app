@@ -22,7 +22,7 @@ export interface Movie {
   release_date: string;
   runtime: number;
   vote_average: number;
-  poster_path: string | null;
+  poster_path: string;
   backdrop_path: string | null;
   genres: Genre[];
   credits: {
@@ -37,8 +37,15 @@ export interface MetaProps {
   vote_average: number;
 }
 
-type CreditListProps = {
+export type CreditListProps = {
   title: string;
   credits: CastMember[] | CrewMember[];
   type: "cast" | "crew";
+};
+
+export type FavoritesState = {
+  favorites: Movie[];
+  addFavorite: (movie: Movie) => void;
+  removeFavorite: (id: number) => void;
+  isFavorite: (id: number) => boolean;
 };

@@ -1,13 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { Movie } from "@/types";
-
-type FavoritesState = {
-  favorites: Movie[];
-  addFavorite: (movie: Movie) => void;
-  removeFavorite: (id: number) => void;
-  isFavorite: (id: number) => boolean;
-};
+import { FavoritesState } from "@/types";
 
 export const useFavorites = create<FavoritesState>()(
   persist(
@@ -27,7 +20,7 @@ export const useFavorites = create<FavoritesState>()(
       isFavorite: (id) => get().favorites.some((m) => m.id === id),
     }),
     {
-      name: "favorites-movies",
+      name: "favorites-movies", // synch with local storage
     }
   )
 );

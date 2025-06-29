@@ -4,11 +4,16 @@ import MovieCard from "./MovieCard";
 import { Movie } from "@/types";
 
 const FeaturedMovies = async () => {
-  const featuredMovies = await getFeaturedMovies();
+  let featuredMovies: Movie[];
+  try {
+    featuredMovies = await getFeaturedMovies();
+  } catch {
+    throw new Error("Error fetching features movies");
+  }
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {featuredMovies.map((movie: Movie) => (
-        <MovieCard key={movie.id} {...movie} />
+      {featuredMovies.map((movie: Movie, index: number) => (
+        <MovieCard key={movie.id} {...movie} priority={index < 2} />
       ))}
     </div>
   );

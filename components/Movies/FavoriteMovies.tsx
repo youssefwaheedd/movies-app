@@ -3,7 +3,7 @@
 import { useFavorites } from "@/store/favorites";
 import MovieCard from "./MovieCard";
 import { useEffect, useState } from "react";
-import Loading from "@/app/(root)/favorites/loading";
+import SectionSkeleton from "../Skeleton/SectionSkeleton";
 
 export default function FavoriteMovies() {
   const favorites = useFavorites((state) => state.favorites);
@@ -17,7 +17,7 @@ export default function FavoriteMovies() {
         if (hasHydrated) {
           setIsHydrated(true);
         } else {
-          // If hasHydrated is not available, assume hydration is complete after a short delay
+          // If hasHydrated is not available, assume hydration is complete after a short delay (chatgpt suggested this)
           setTimeout(() => setIsHydrated(true), 100);
         }
       } catch {
@@ -30,7 +30,7 @@ export default function FavoriteMovies() {
   }, []);
 
   if (!isHydrated) {
-    return <Loading />;
+    return <SectionSkeleton />; // still loading
   }
 
   if (favorites.length === 0) {
@@ -39,8 +39,8 @@ export default function FavoriteMovies() {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {favorites.map((movie) => (
-        <MovieCard key={movie.id} {...movie} />
+      {favorites.map((movie, index) => (
+        <MovieCard key={movie.id} {...movie} priority={index < 2} />
       ))}
     </div>
   );

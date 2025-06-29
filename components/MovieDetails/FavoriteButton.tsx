@@ -2,7 +2,6 @@
 
 import { useFavorites } from "@/store/favorites";
 import { Movie } from "@/types";
-import { motion, AnimatePresence } from "framer-motion";
 import { Check, Star } from "lucide-react";
 
 import { useEffect, useState } from "react";
@@ -52,38 +51,35 @@ export default function FavoriteButton({ movie }: { movie: Movie }) {
   };
 
   return (
-    <motion.button
+    <button
       onClick={toggle}
       disabled={isAnimating}
-      whileTap={{ scale: 0.9 }}
-      whileHover={{ scale: 1.05 }}
-      className={`transition-colors p-2 rounded-full ml-2 cursor-pointer ${
+      className={`favorite-button ${
         favorite ? "bg-[#1ce783] text-[#0b0c0f]" : "bg-gray-800 text-gray-300"
       }`}
+      aria-label={
+        favorite
+          ? `Remove ${movie.title} from favorites`
+          : `Add ${movie.title} to favorites`
+      }
+      aria-pressed={favorite}
     >
-      <AnimatePresence mode="wait">
+      <div className="relative w-6 h-6">
         {showTick ? (
-          <motion.div
-            key="check"
-            initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Check size={20} />
-          </motion.div>
+          <Check
+            width={25}
+            height={25}
+            className="absolute inset-0 transition-all duration-300 ease-in-out transform scale-100 opacity-100"
+            aria-hidden="true"
+          />
         ) : (
-          <motion.div
-            key="star"
-            initial={{ opacity: 0, rotate: 90, scale: 0.5 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Star fill={favorite ? "#1ce783" : "none"} />
-          </motion.div>
+          <Star
+            fill={favorite ? "#1ce783" : "none"}
+            className="absolute inset-0 transition-all duration-300 ease-in-out transform scale-100 opacity-100"
+            aria-hidden="true"
+          />
         )}
-      </AnimatePresence>
-    </motion.button>
+      </div>
+    </button>
   );
 }

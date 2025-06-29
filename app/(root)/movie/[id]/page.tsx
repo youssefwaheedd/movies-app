@@ -10,7 +10,7 @@ export default async function MoviePage({
 }) {
   const { id } = await params;
 
-  if (!id) return notFound();
+  if (!id) return notFound(); // rollback to not found in case of any errors caused by the id
 
   let movie: Movie | null = null;
 

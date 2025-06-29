@@ -18,8 +18,8 @@ export default function MovieList({
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} {...movie} />
+      {movies.map((movie, index) => (
+        <MovieCard key={movie.id} {...movie} priority={index < 2} />
       ))}
     </div>
   );

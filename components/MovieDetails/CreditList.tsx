@@ -2,17 +2,10 @@
 
 import React from "react";
 import type { CreditListProps } from "@/types";
-import { motion } from "framer-motion";
 
 const CreditList = ({ title, credits, type }: CreditListProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5 }}
-      viewport={{ once: true }}
-      className="mb-4"
-    >
+    <div className="mb-4 animate-fade-in">
       <strong className="text-[#1ce783]">{title}:</strong>
       <div className="flex flex-wrap gap-2 mt-1">
         {credits.map((credit) => (
@@ -34,7 +27,7 @@ const CreditList = ({ title, credits, type }: CreditListProps) => {
           </span>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

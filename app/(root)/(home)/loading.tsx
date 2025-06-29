@@ -1,17 +1,25 @@
-import { Skeleton } from "@/components/ui/skeleton";
-import React from "react";
+import SectionSkeleton from "@/components/Skeleton/SectionSkeleton";
+import LoadingSpanner from "@/components/ui/loadingSpanner";
 
-const loading = () => {
+export default function Loading() {
   return (
-    <div className="rounded-lg flex flex-col shadow-lg p-2 bg-[#0b0c0f]">
-      <div className="w-full aspect-[2/3] relative mb-2">
-        <Skeleton className="absolute inset-0 w-full h-full rounded object-cover" />
-      </div>
-      <Skeleton className="h-6 w-full mb-2" />
-      <Skeleton className="h-4 w-1/2 mb-1" />
-      <Skeleton className="h-4 w-1/3" />
-    </div>
-  );
-};
+    <main className="min-h-screen ">
+      <LoadingSpanner />
 
-export default loading;
+      <div className="movie-section">
+        <strong className="movie-section-title">Favorite Movies</strong>
+        <SectionSkeleton />
+      </div>
+
+      <div className="movie-section">
+        <strong className="movie-section-title">Featured Movies</strong>
+        <SectionSkeleton />
+      </div>
+
+      <div className="movie-section">
+        <strong className="movie-section-title">Trending This Week</strong>
+        <SectionSkeleton />
+      </div>
+    </main>
+  );
+}

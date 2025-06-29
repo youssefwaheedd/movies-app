@@ -17,17 +17,19 @@ const Footer = () => {
             href="https://github.com/youssefwaheedd"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition"
+            className="hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1ce783] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b0c0f] rounded p-1"
+            aria-label="Visit GitHub profile"
           >
-            <Github size={20} />
+            <Github size={20} aria-hidden="true" />
           </Link>
           <Link
             href="https://linkedin.com/in/youssefwaheed"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white transition"
+            className="hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1ce783] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b0c0f] rounded p-1"
+            aria-label="Visit LinkedIn profile"
           >
-            <Linkedin size={20} />
+            <Linkedin size={20} aria-hidden="true" />
           </Link>
         </div>
       </div>

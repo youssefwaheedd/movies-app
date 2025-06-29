@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
   return (
-    <div className="p-4 lg:p-20 flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:items-start gap-2 lg:gap-6 animate-pulse bg-[#0b0c0f]">
+    <div className="movie-details-skeleton">
       {/* Image Skeleton */}
       <Skeleton className="rounded-lg object-cover mb-4 w-full lg:min-h-[600px] lg:w-[400px] h-[500px] skeleton " />
       {/* Content Skeletons */}
@@ -11,9 +11,9 @@ export default function Loading() {
         <Skeleton className="h-10 w-3/4 mb-2 skeleton rounded" />
         {/* Genres */}
         <div className="flex flex-wrap gap-2 mb-4">
-          <Skeleton className="h-6 w-16 skeletonrounded-full" />
-          <Skeleton className="h-6 w-12 skeletonrounded-full" />
-          <Skeleton className="h-6 w-20 skeletonrounded-full" />
+          <Skeleton className="h-6 w-16 skeleton rounded-full" />
+          <Skeleton className="h-6 w-12 skeleton rounded-full" />
+          <Skeleton className="h-6 w-20 skeleton rounded-full" />
         </div>
         {/* Rating, runtime, release date */}
         <div className="flex items-center gap-4 mb-4 flex-wrap">
